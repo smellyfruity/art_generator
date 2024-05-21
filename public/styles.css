@@ -1,0 +1,181 @@
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* This centers the child elements horizontally */
+    justify-content: center; /* Add this if you want vertical centering as well */
+    min-height: 100vh; /* This ensures the body takes up the full viewport height */
+    font-family: 'Merriweather', serif;
+    overflow: hidden; /* Hide scroll bars and prevent scrolling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+#video {
+    position: relative;
+    border: 1px solid black;
+    width: 640px;
+    height: 480px;
+}
+
+#countdownDisplay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 48px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#videoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 640px;
+    height: 480px;
+    border: 1px solid black;
+}
+
+#videoContainer {
+    display: none; /* Initially hidden, shown only after 'continue' is clicked */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 640px;
+    height: 480px;
+    border: 1px solid black;
+}
+
+#startButton, #description {
+    display: none; /* Make sure these are initially hidden */
+}
+
+
+
+#imageDisplay {
+    display: flex;
+    justify-content: space-around; /* Evenly spaces the images */
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#description {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px; /* Additional spacing from images */
+    display: block; /* Ensure it's always visible */
+}
+
+
+
+
+button, a {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+
+
+#intro h1 span span, #intro p span {
+    font-size: 2.5em; /* Larger text for the heading */
+    opacity: 0; /* Start with hidden text */
+    animation: fadeIn 0.5s ease forwards; /* Animation to fade in */
+}
+
+#intro p span {
+    font-size: 1.5em; /* Adjust size for paragraph if needed */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Delay each word's appearance */
+#intro h1 span:nth-child(1) { animation-delay: 0.5s; }
+#intro h1 span:nth-child(2) { animation-delay: 1s; }
+#intro h1 span:nth-child(3) { animation-delay: 1.5s; }
+#intro h1 span:nth-child(4) { animation-delay: 2s; }
+#intro h1 span:nth-child(5) { animation-delay: 2.5s; }
+
+#intro p span:nth-child(1) { animation-delay: 3s; }
+#intro p span:nth-child(2) { animation-delay: 3.5s; }
+#intro p span:nth-child(3) { animation-delay: 4s; }
+#intro p span:nth-child(4) { animation-delay: 4.5s; }
+
+
+
+#continueButton {
+    opacity: 0;
+    transition: opacity 1s ease;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block; /* Aligns text and icon nicely */
+}
+
+#continueButton i {
+    margin-left: 5px; /* Spacing between text and icon */
+}
+
+
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.generating-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Use fixed to ensure it covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* Optional: Change the background as needed */
+    color: white;
+    font-size: 24px;
+    z-index: 100; /* Ensures it is on top of other content */
+}
+
+.dot {
+    animation: blink 1.5s infinite;
+    margin: 0 5px;
+}
+
+
+#actionButtons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+#actionButtons button {
+    padding: 10px 20px; /* Padding for better touch targets */
+    font-size: 16px; /* Appropriate font size */
+    cursor: pointer; /* Cursor indicates clickable */
+    /* Add more styling as needed */
+}
